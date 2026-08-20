@@ -127,7 +127,7 @@
   @keyframes spin{to{transform:rotate(360deg)}}
 
   /* Modal footer */
-  .modal-footer{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:#e8f4f0;border-top:1px solid #c2ddd6;border-radius:0 0 3px 3px;flex-wrap:wrap;gap:8px;position:sticky;bottom:0;z-index:10}
+  .modal-footer{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:#e8f4f0;border-top:1px solid #c2ddd6;border-radius:0;flex-wrap:wrap;gap:8px;position:sticky;bottom:0;z-index:10}
   .modal-notice{font-size:12px;color:#555;display:flex;align-items:center;gap:6px}
   .modal-notice .warn-icon{color:#e08c00}
   .modal-footer-btns{display:flex;gap:8px;flex-wrap:wrap}
@@ -260,6 +260,7 @@
     </div>
 
     <!-- Invoice data -->
+    <div style="flex:1;overflow-y:auto;">
     <div class="inv-col-hdr">
       <div>Item #</div><div>Description</div>
       <div style="text-align:right">Qty</div>
@@ -320,6 +321,7 @@
       </div>
     </div>
 
+    </div>
     <div class="modal-footer">
       <div class="modal-notice"><span class="warn-icon">&#9888;</span> Preview only – no data has been saved.</div>
       <div class="modal-footer-btns">
