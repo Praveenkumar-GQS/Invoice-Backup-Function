@@ -10,7 +10,7 @@
 
   .topbar{background:#2d2d2d;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 12px;height:44px;position:sticky;top:0;z-index:200}
   .topbar-left{display:flex;align-items:center;gap:10px}
-  .hamburger{font-size:20px;cursor:pointer;color:#aaa;background:none;border:none;line-height:1}
+  .hamburger{font-size:20px;cursor:pointer;color:#aaa;background:none;border:none}
   .test-stamp{background:#fff;color:#c00;border:2px solid #c00;font-size:9px;font-weight:900;padding:2px 5px;transform:rotate(-8deg);display:inline-block;letter-spacing:1px}
   .topbar-right{display:flex;align-items:center;gap:14px}
   .topbar-icon{font-size:18px;color:#aaa;cursor:pointer;background:none;border:none}
@@ -22,7 +22,7 @@
   .layout{display:flex;min-height:calc(100vh - 44px)}
   .sidebar{width:175px;background:#3a3a3a;flex-shrink:0}
   .sidebar-logo{padding:14px 16px 10px;border-bottom:1px solid #555}
-  .logo-gqs{font-size:26px;font-weight:900;color:#5bc8a0;letter-spacing:-1px;line-height:1}
+  .logo-gqs{font-size:26px;font-weight:900;color:#5bc8a0;letter-spacing:-1px}
   .logo-gqs sup{font-size:14px;color:#2a8}
   .nav-item{display:flex;align-items:center;gap:10px;padding:10px 15px;color:#bbb;font-size:13px;cursor:pointer;border-left:3px solid transparent;text-decoration:none}
   .nav-item:hover{background:#4a4a4a;color:#fff}
@@ -75,14 +75,14 @@
   .footer-btns{display:flex;gap:6px;flex-wrap:wrap}
 
   /* ══ MODAL ══ */
-  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:500;align-items:center;justify-content:center;padding:20px}
+  .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.65);z-index:500;align-items:center;justify-content:center;padding:16px}
   .modal-overlay.open{display:flex}
-  .modal{background:#fff;border-radius:3px;width:960px;max-width:96vw;height:88vh;display:flex;flex-direction:column;box-shadow:0 8px 40px rgba(0,0,0,0.45);overflow:hidden}
+  .modal{background:#fff;border-radius:3px;width:96vw;max-width:1300px;height:90vh;display:flex;flex-direction:column;box-shadow:0 8px 40px rgba(0,0,0,0.45);overflow:hidden}
 
   /* Modal header */
   .modal-header{background:#3a9e82;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 16px;height:46px;flex-shrink:0}
   .modal-header-title{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:700}
-  .modal-close{background:none;border:none;color:#fff;font-size:24px;cursor:pointer;line-height:1;opacity:.85}
+  .modal-close{background:none;border:none;color:#fff;font-size:24px;cursor:pointer;opacity:.85}
   .modal-close:hover{opacity:1}
 
   /* Visit tabs */
@@ -91,46 +91,60 @@
   .visit-tab.active{color:#fff;border-bottom-color:#5bc8a0;background:#3a3a3a}
   .visit-tab:hover:not(.active){color:#ddd;background:#333}
 
-  /* Modal scrollable body */
-  .modal-body{flex:1;overflow-y:auto;min-height:0;display:flex;flex-direction:column}
+  /* Split pane */
+  .split-pane{display:flex;flex:1;min-height:0}
 
-  /* ── Invoice section ── */
-  .inv-section-label{background:#f0f0f0;border-bottom:1px solid #ddd;padding:6px 14px;font-size:11px;font-weight:700;color:#555;letter-spacing:.4px;display:flex;align-items:center;gap:6px}
-  .inv-col-hdr{display:grid;grid-template-columns:60px 1fr 90px 110px 110px;padding:7px 14px;border-bottom:1px solid #ddd;font-size:12px;font-weight:700;color:#333;background:#f8f8f8}
-  .inv-group{background:#d8f0ea;padding:7px 14px;font-size:12px;font-weight:700;color:#222;border-bottom:1px solid #c2e0d8}
-  .inv-group .noi{font-style:italic;font-weight:400;color:#666;font-size:11px;margin-top:2px}
-  .inv-line{display:grid;grid-template-columns:60px 1fr 90px 110px 110px;padding:7px 14px;border-bottom:1px solid #eee;align-items:start}
-  .inv-line .desc{font-size:12px;color:#222}
-  .inv-line .desc .sub{font-size:11px;color:#777;margin-top:2px}
-  .inv-line .qty,.inv-line .price,.inv-line .total{font-size:12px;text-align:right}
+  /* LEFT — Invoice */
+  .pane-invoice{width:42%;flex-shrink:0;border-right:3px solid #3a9e82;display:flex;flex-direction:column;overflow:hidden}
+  .pane-label{background:#1d6b55;color:#fff;padding:6px 14px;font-size:11px;font-weight:700;letter-spacing:.5px;flex-shrink:0;display:flex;align-items:center;gap:8px}
+  .pane-label .plabel-badge{background:#fff;color:#1d6b55;font-size:10px;font-weight:700;padding:1px 7px;border-radius:8px}
+  .pane-scroll{overflow-y:auto;flex:1;min-height:0}
+
+  .inv-col-hdr{display:grid;grid-template-columns:50px 1fr 70px 100px 100px;padding:7px 14px;border-bottom:1px solid #ddd;font-size:11px;font-weight:700;color:#333;background:#f5f5f5;position:sticky;top:0;z-index:2}
+  .inv-group{background:#d8f0ea;padding:7px 14px;font-size:11px;font-weight:700;color:#222;border-bottom:1px solid #c2e0d8}
+  .inv-group .noi{font-style:italic;font-weight:400;color:#666;font-size:10px;margin-top:2px}
+  .inv-line{display:grid;grid-template-columns:50px 1fr 70px 100px 100px;padding:7px 14px;border-bottom:1px solid #eee;align-items:start}
+  .inv-line .desc{font-size:11px;color:#222}
+  .inv-line .desc .sub{font-size:10px;color:#777;margin-top:2px}
+  .inv-line .qty,.inv-line .price,.inv-line .total{font-size:11px;text-align:right}
   .inv-line .total{font-weight:700}
   .inv-totals{padding:10px 14px;border-bottom:1px solid #ddd}
   .tot-row{display:flex;justify-content:flex-end;margin-bottom:4px}
-  .tot-label{font-size:12px;color:#555;width:80px;text-align:right;padding-right:14px}
-  .tot-val{font-size:12px;width:110px;text-align:right}
+  .tot-label{font-size:11px;color:#555;width:80px;text-align:right;padding-right:12px}
+  .tot-val{font-size:11px;width:100px;text-align:right}
   .tot-val.bold{font-weight:700}
-  .vat-section{padding:10px 14px 14px;border-bottom:3px solid #3a9e82}
-  .vat-title{font-size:12px;font-weight:700;text-decoration:underline;margin-bottom:3px}
-  .vat-note{font-size:11px;font-style:italic;color:#666;margin-bottom:8px}
-  .vat-table{width:100%;border-collapse:collapse;font-size:12px}
-  .vat-table th{text-align:left;font-weight:700;padding:5px 10px;border-bottom:2px solid #3a9e82;color:#333}
-  .vat-table td{padding:5px 10px;border-bottom:1px solid #eee}
+  .vat-section{padding:9px 14px 14px}
+  .vat-title{font-size:11px;font-weight:700;text-decoration:underline;margin-bottom:3px}
+  .vat-note{font-size:10px;font-style:italic;color:#666;margin-bottom:8px}
+  .vat-table{width:100%;border-collapse:collapse;font-size:11px}
+  .vat-table th{text-align:left;font-weight:700;padding:4px 8px;border-bottom:2px solid #3a9e82;color:#333}
+  .vat-table td{padding:4px 8px;border-bottom:1px solid #eee}
   .vat-table .r{text-align:right}
 
-  /* ── PDF section ── */
-  .ts-divider{display:flex;align-items:center;gap:10px;padding:10px 14px;background:#f0f8f5;border-top:2px solid #3a9e82}
-  .ts-divider-label{font-size:13px;font-weight:700;color:#1d6b55}
-  .ts-divider-line{flex:1;height:1px;background:#b0ddd0}
-  .ts-badge{background:#3a9e82;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px}
-  .pdf-viewer-wrap{background:#525659;padding:12px 14px 14px;flex:1}
-  .pdf-toolbar{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px}
-  .pdf-toolbar-btns{display:flex;align-items:center;gap:7px}
-  .pdf-toolbar button{background:#616467;color:#fff;border:1px solid #777;padding:4px 11px;font-size:12px;cursor:pointer;border-radius:2px}
-  .pdf-toolbar button:hover{background:#777}
-  .pdf-toolbar span{color:#ddd;font-size:12px}
-  .pdf-frame-wrap{background:#fff;box-shadow:0 3px 16px rgba(0,0,0,0.5);border-radius:2px;line-height:0}
-  .pdf-frame-wrap canvas{display:block;width:100%;height:auto}
-  .pdf-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;color:#ccc;gap:12px;font-size:12px}
+  /* RIGHT — PDF pane */
+  .pane-pdf{flex:1;display:flex;flex-direction:column;overflow:hidden;background:#3a3a3a}
+  .pdf-pane-label{background:#1d4d6b;color:#fff;padding:6px 14px;font-size:11px;font-weight:700;letter-spacing:.5px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between}
+  .pdf-pane-label .badge-approved{background:#3a9e82;color:#fff;font-size:10px;font-weight:700;padding:1px 8px;border-radius:8px}
+
+  /* Document tabs */
+  .doc-tabs{display:flex;background:#2d2d2d;border-bottom:2px solid #5bc8a0;overflow-x:auto;flex-shrink:0}
+  .doc-tab{padding:7px 14px;font-size:11px;color:#aaa;cursor:pointer;border-right:1px solid #444;white-space:nowrap;display:flex;align-items:center;gap:5px;flex-shrink:0;border-bottom:3px solid transparent;transition:background .15s}
+  .doc-tab.active{color:#fff;background:#525659;border-bottom-color:#5bc8a0}
+  .doc-tab:hover:not(.active){color:#ddd;background:#3a3a3a}
+  .doc-tab .doc-badge{background:#3a9e82;color:#fff;font-size:9px;padding:1px 5px;border-radius:6px;margin-left:3px}
+
+  /* PDF toolbar */
+  .pdf-toolbar{display:flex;align-items:center;justify-content:space-between;padding:7px 12px;background:#444;flex-shrink:0;flex-wrap:wrap;gap:6px}
+  .pdf-toolbar-btns{display:flex;align-items:center;gap:6px}
+  .pdf-toolbar button{background:#555;color:#fff;border:1px solid #666;padding:3px 10px;font-size:11px;cursor:pointer;border-radius:2px}
+  .pdf-toolbar button:hover{background:#666}
+  .pdf-toolbar span{color:#ccc;font-size:11px}
+
+  /* PDF scroll + canvas */
+  .pdf-scroll{overflow-y:auto;flex:1;min-height:0;padding:12px;background:#525659}
+  .pdf-canvas-wrap{background:#fff;box-shadow:0 2px 12px rgba(0,0,0,0.5);border-radius:2px;line-height:0}
+  .pdf-canvas-wrap canvas{display:block;width:100%;height:auto}
+  .pdf-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:50px;color:#ccc;gap:12px;font-size:12px}
   .spinner{width:30px;height:30px;border:3px solid #555;border-top-color:#5bc8a0;border-radius:50%;animation:spin .8s linear infinite}
   @keyframes spin{to{transform:rotate(360deg)}}
 
@@ -267,155 +281,133 @@
 <div class="modal-overlay" id="previewModal" onclick="handleOverlayClick(event)">
   <div class="modal" role="dialog" aria-modal="true">
 
-    <!-- Header -->
     <div class="modal-header">
       <div class="modal-header-title">&#128196;&nbsp; Invoice Preview</div>
       <button class="modal-close" onclick="closePreview()">&times;</button>
     </div>
 
     <!-- Visit tabs -->
-    <div class="visit-tabs" id="visitTabs">
+    <div class="visit-tabs">
       <div class="visit-tab active" onclick="switchVisit(0,this)">&#128203; Visit 1 — Li, Barry &nbsp;|&nbsp; 20/04/2026</div>
       <div class="visit-tab" onclick="switchVisit(1,this)">&#128203; Visit 2 — Jess, Chen &nbsp;|&nbsp; 27/06/2026</div>
     </div>
 
-    <!-- Scrollable body -->
-    <div class="modal-body">
+    <!-- Split pane -->
+    <div class="split-pane">
 
-      <!-- ── VISIT 1 ── -->
-      <div id="visit-0">
-        <div class="inv-section-label">&#128196; INVOICE DETAILS</div>
-        <div class="inv-col-hdr">
-          <div>Item #</div><div>Description</div>
-          <div style="text-align:right">Qty</div>
-          <div style="text-align:right">Price</div>
-          <div style="text-align:right">Total Value</div>
-        </div>
-        <div class="inv-group">
-          Li, Barry &nbsp;|&nbsp; GQS550-002/0010/0007 &nbsp;|&nbsp; 20/04/2026
-          <div class="noi">NOI NO: TO BE REUSED</div>
-        </div>
-        <div class="inv-line">
-          <div style="font-size:12px;color:#555">1</div>
-          <div class="desc">Working time<div class="sub">1 Hour @ RM 143.53 per Hour</div></div>
-          <div class="qty">10.00</div>
-          <div class="price">RM 143.53</div>
-          <div class="total">RM 1,435.30</div>
-        </div>
-        <div class="inv-totals">
-          <div class="tot-row"><div class="tot-label">Total:</div><div class="tot-val bold">RM 1,435.30</div></div>
-          <div class="tot-row"><div class="tot-label">VAT:</div><div class="tot-val">RM 114.824</div></div>
-          <div class="tot-row"><div class="tot-label"><strong>Gross:</strong></div><div class="tot-val bold">RM 1,550.124</div></div>
-        </div>
-        <div class="vat-section">
-          <div class="vat-title">VAT Analysis</div>
-          <div class="vat-note">(VAT may vary based on the original timesheets submitted)</div>
-          <table class="vat-table">
-            <thead><tr><th>Code</th><th>Rate</th><th class="r">Supplies</th><th class="r">VAT</th></tr></thead>
-            <tbody><tr><td>SM8</td><td>8.00</td><td class="r">1,435.30</td><td class="r">114.824</td></tr></tbody>
-          </table>
-        </div>
+      <!-- LEFT: Invoice -->
+      <div class="pane-invoice">
+        <div class="pane-label">&#128196; Invoice Details <span class="plabel-badge">PREVIEW</span></div>
+        <div class="pane-scroll">
 
-        <div class="ts-divider">
-          <div class="ts-divider-label">&#128196; Approved Timesheet (PDF)</div>
-          <div class="ts-divider-line"></div>
-          <span class="ts-badge">&#10003; APPROVED</span>
-        </div>
-        <div class="pdf-viewer-wrap">
-          <div class="pdf-toolbar">
-            <div class="pdf-toolbar-btns">
-              <button onclick="prevPage()">&#8592; Prev</button>
-              <span id="pageInfo">Page 1 of 1</span>
-              <button onclick="nextPage()">Next &#8594;</button>
+          <!-- Visit 0 invoice -->
+          <div id="inv-0">
+            <div class="inv-col-hdr">
+              <div>Item #</div><div>Description</div>
+              <div style="text-align:right">Qty</div>
+              <div style="text-align:right">Price</div>
+              <div style="text-align:right">Total</div>
             </div>
-            <div class="pdf-toolbar-btns">
-              <button onclick="zoomOut()">&#8722; Zoom</button>
-              <button onclick="zoomIn()">&#43; Zoom</button>
-              <button onclick="downloadPDF()">&#8659; Download PDF</button>
+            <div class="inv-group">Li, Barry &nbsp;|&nbsp; GQS550-002/0010/0007 &nbsp;|&nbsp; 20/04/2026<div class="noi">NOI NO: TO BE REUSED</div></div>
+            <div class="inv-line">
+              <div style="font-size:11px;color:#555">1</div>
+              <div class="desc">Working time<div class="sub">1 Hour @ RM 143.53 per Hour</div></div>
+              <div class="qty">10.00</div><div class="price">RM 143.53</div><div class="total">RM 1,435.30</div>
+            </div>
+            <div class="inv-totals">
+              <div class="tot-row"><div class="tot-label">Total:</div><div class="tot-val bold">RM 1,435.30</div></div>
+              <div class="tot-row"><div class="tot-label">VAT:</div><div class="tot-val">RM 114.824</div></div>
+              <div class="tot-row"><div class="tot-label"><strong>Gross:</strong></div><div class="tot-val bold">RM 1,550.124</div></div>
+            </div>
+            <div class="vat-section">
+              <div class="vat-title">VAT Analysis</div>
+              <div class="vat-note">(VAT may vary based on the original timesheets submitted)</div>
+              <table class="vat-table">
+                <thead><tr><th>Code</th><th>Rate</th><th class="r">Supplies</th><th class="r">VAT</th></tr></thead>
+                <tbody><tr><td>SM8</td><td>8.00</td><td class="r">1,435.30</td><td class="r">114.824</td></tr></tbody>
+              </table>
             </div>
           </div>
-          <div class="pdf-frame-wrap">
+
+          <!-- Visit 1 invoice -->
+          <div id="inv-1" style="display:none">
+            <div class="inv-col-hdr">
+              <div>Item #</div><div>Description</div>
+              <div style="text-align:right">Qty</div>
+              <div style="text-align:right">Price</div>
+              <div style="text-align:right">Total</div>
+            </div>
+            <div class="inv-group">Jess, Chen &nbsp;|&nbsp; GQS550-037/0007/0013 &nbsp;|&nbsp; 27/06/2026<div class="noi">NOI NO: 154113 (01)</div></div>
+            <div class="inv-line">
+              <div style="font-size:11px;color:#555">1</div>
+              <div class="desc">Working time<div class="sub">16 Hours @ RM 131.25 per Hour</div></div>
+              <div class="qty">16.00</div><div class="price">RM 131.25</div><div class="total">RM 2,100.00</div>
+            </div>
+            <div class="inv-line">
+              <div style="font-size:11px;color:#555">2</div>
+              <div class="desc">Mileage<div class="sub">200 Kms @ RM 0.00 per Km</div></div>
+              <div class="qty">200.00</div><div class="price">RM 0.00</div><div class="total">RM 0.00</div>
+            </div>
+            <div class="inv-totals">
+              <div class="tot-row"><div class="tot-label">Total:</div><div class="tot-val bold">RM 2,100.00</div></div>
+              <div class="tot-row"><div class="tot-label">VAT:</div><div class="tot-val">RM 168.00</div></div>
+              <div class="tot-row"><div class="tot-label"><strong>Gross:</strong></div><div class="tot-val bold">RM 2,268.00</div></div>
+            </div>
+            <div class="vat-section">
+              <div class="vat-title">VAT Analysis</div>
+              <div class="vat-note">(VAT may vary based on the original timesheets submitted)</div>
+              <table class="vat-table">
+                <thead><tr><th>Code</th><th>Rate</th><th class="r">Supplies</th><th class="r">VAT</th></tr></thead>
+                <tbody><tr><td>SM8</td><td>8.00</td><td class="r">2,100.00</td><td class="r">168.00</td></tr></tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT: PDF pane -->
+      <div class="pane-pdf">
+        <div class="pdf-pane-label">
+          &#128196; Supporting Documents
+          <span class="badge-approved">&#10003; APPROVED</span>
+        </div>
+
+        <!-- Document tabs -->
+        <div class="doc-tabs" id="docTabsBar">
+          <div class="doc-tab active" onclick="switchDoc(0,this)">&#128196; Approved Timesheet <span class="doc-badge">&#10003;</span></div>
+          <div class="doc-tab" onclick="switchDoc(1,this)">&#128203; Inspection Report</div>
+          <div class="doc-tab" onclick="switchDoc(2,this)">&#128196; NOI Document</div>
+        </div>
+
+        <!-- PDF toolbar -->
+        <div class="pdf-toolbar">
+          <div class="pdf-toolbar-btns">
+            <button onclick="prevPage()">&#8592; Prev</button>
+            <span id="pageInfo">Page 1 of 1</span>
+            <button onclick="nextPage()">Next &#8594;</button>
+          </div>
+          <div class="pdf-toolbar-btns">
+            <button onclick="zoomOut()">&#8722; Zoom</button>
+            <button onclick="zoomIn()">&#43; Zoom</button>
+            <button onclick="downloadPDF()">&#8659; Download</button>
+          </div>
+        </div>
+
+        <!-- PDF canvas -->
+        <div class="pdf-scroll">
+          <div class="pdf-canvas-wrap">
             <div class="pdf-loading" id="pdfLoading">
               <div class="spinner"></div>
-              <span>Loading approved timesheet…</span>
+              <span id="pdfLoadingText">Loading Approved Timesheet…</span>
             </div>
             <canvas id="pdfCanvas" style="display:none;width:100%"></canvas>
           </div>
         </div>
       </div>
 
-      <!-- ── VISIT 2 ── -->
-      <div id="visit-1" style="display:none">
-        <div class="inv-section-label">&#128196; INVOICE DETAILS</div>
-        <div class="inv-col-hdr">
-          <div>Item #</div><div>Description</div>
-          <div style="text-align:right">Qty</div>
-          <div style="text-align:right">Price</div>
-          <div style="text-align:right">Total Value</div>
-        </div>
-        <div class="inv-group">
-          Jess, Chen &nbsp;|&nbsp; GQS550-037/0007/0013 &nbsp;|&nbsp; 27/06/2026
-          <div class="noi">NOI NO: 154113 (01)</div>
-        </div>
-        <div class="inv-line">
-          <div style="font-size:12px;color:#555">1</div>
-          <div class="desc">Working time<div class="sub">16 Hours @ RM 131.25 per Hour</div></div>
-          <div class="qty">16.00</div>
-          <div class="price">RM 131.25</div>
-          <div class="total">RM 2,100.00</div>
-        </div>
-        <div class="inv-line">
-          <div style="font-size:12px;color:#555">2</div>
-          <div class="desc">Mileage<div class="sub">200 Kms @ RM 0.00 per Km</div></div>
-          <div class="qty">200.00</div>
-          <div class="price">RM 0.00</div>
-          <div class="total">RM 0.00</div>
-        </div>
-        <div class="inv-totals">
-          <div class="tot-row"><div class="tot-label">Total:</div><div class="tot-val bold">RM 2,100.00</div></div>
-          <div class="tot-row"><div class="tot-label">VAT:</div><div class="tot-val">RM 168.00</div></div>
-          <div class="tot-row"><div class="tot-label"><strong>Gross:</strong></div><div class="tot-val bold">RM 2,268.00</div></div>
-        </div>
-        <div class="vat-section">
-          <div class="vat-title">VAT Analysis</div>
-          <div class="vat-note">(VAT may vary based on the original timesheets submitted)</div>
-          <table class="vat-table">
-            <thead><tr><th>Code</th><th>Rate</th><th class="r">Supplies</th><th class="r">VAT</th></tr></thead>
-            <tbody><tr><td>SM8</td><td>8.00</td><td class="r">2,100.00</td><td class="r">168.00</td></tr></tbody>
-          </table>
-        </div>
+    </div><!-- end split-pane -->
 
-        <div class="ts-divider">
-          <div class="ts-divider-label">&#128196; Approved Timesheet (PDF)</div>
-          <div class="ts-divider-line"></div>
-          <span class="ts-badge">&#10003; APPROVED</span>
-        </div>
-        <div class="pdf-viewer-wrap">
-          <div class="pdf-toolbar">
-            <div class="pdf-toolbar-btns">
-              <button onclick="prevPage()">&#8592; Prev</button>
-              <span id="pageInfo2">Page 1 of 1</span>
-              <button onclick="nextPage()">Next &#8594;</button>
-            </div>
-            <div class="pdf-toolbar-btns">
-              <button onclick="zoomOut()">&#8722; Zoom</button>
-              <button onclick="zoomIn()">&#43; Zoom</button>
-              <button onclick="downloadPDF()">&#8659; Download PDF</button>
-            </div>
-          </div>
-          <div class="pdf-frame-wrap">
-            <div class="pdf-loading" id="pdfLoading2">
-              <div class="spinner"></div>
-              <span>Loading approved timesheet…</span>
-            </div>
-            <canvas id="pdfCanvas2" style="display:none;width:100%"></canvas>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- end modal-body -->
-
-    <!-- Footer -->
     <div class="modal-footer">
       <div class="modal-notice"><span class="warn-icon">&#9888;</span> Preview only – no data has been saved.</div>
       <div class="modal-footer-btns">
@@ -432,13 +424,27 @@
 <script>
 pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-const visits=[
-  {pdf:'timesheet.pdf', canvasId:'pdfCanvas', loadingId:'pdfLoading', pageInfoId:'pageInfo'},
-  {pdf:'timesheet.pdf', canvasId:'pdfCanvas2', loadingId:'pdfLoading2', pageInfoId:'pageInfo2'}
+// visitDocs[visitIdx][docIdx] = { label, pdf, approved }
+// In real system replace pdf filenames per visit/doc
+const visitDocs = [
+  [
+    {label:'Approved Timesheet', pdf:'timesheet.pdf', approved:true},
+    {label:'Inspection Report',  pdf:'timesheet.pdf', approved:false},
+    {label:'NOI Document',       pdf:'timesheet.pdf', approved:false}
+  ],
+  [
+    {label:'Approved Timesheet', pdf:'timesheet.pdf', approved:true},
+    {label:'Inspection Report',  pdf:'timesheet.pdf', approved:false},
+    {label:'NOI Document',       pdf:'timesheet.pdf', approved:false}
+  ]
 ];
 
-let pdfDocs=[null,null], currentPages=[1,1], totalPages=[1,1], scale=1.3, currentVisit=0;
-const loaded=[false,false];
+let currentVisit = 0;
+let currentDoc   = 0;
+let scale        = 1.3;
+
+// cache[visitIdx][docIdx] = { pdfDoc, currentPage, totalPages }
+const cache = visitDocs.map(v => v.map(() => ({pdfDoc:null, currentPage:1, totalPages:1})));
 
 function selectTab(el){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active')}
 function clearFilters(){
@@ -446,11 +452,10 @@ function clearFilters(){
   document.querySelectorAll('.filter-wrap input[type=checkbox]').forEach(i=>i.checked=false);
   document.querySelectorAll('.filter-wrap select').forEach(s=>s.selectedIndex=0);
 }
-
 function openPreview(){
   document.getElementById('previewModal').classList.add('open');
   document.body.style.overflow='hidden';
-  if(!loaded[0]) loadPDF(0);
+  loadDoc(0,0);
 }
 function closePreview(){
   document.getElementById('previewModal').classList.remove('open');
@@ -459,52 +464,81 @@ function closePreview(){
 function handleOverlayClick(e){if(e.target===document.getElementById('previewModal'))closePreview()}
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closePreview()});
 
-function switchVisit(idx, el){
-  document.querySelectorAll('[id^="visit-"]').forEach(d=>d.style.display='none');
-  document.getElementById('visit-'+idx).style.display='block';
+function switchVisit(vIdx, el){
+  // swap invoice pane
+  document.querySelectorAll('[id^="inv-"]').forEach(d=>d.style.display='none');
+  document.getElementById('inv-'+vIdx).style.display='block';
   document.querySelectorAll('.visit-tab').forEach(t=>t.classList.remove('active'));
   el.classList.add('active');
-  currentVisit=idx;
-  // scroll modal body back to top
-  document.querySelector('.modal-body').scrollTop=0;
-  if(!loaded[idx]) loadPDF(idx);
+  currentVisit = vIdx;
+  // keep same doc tab active, reload for new visit
+  loadDoc(vIdx, currentDoc);
 }
 
-function loadPDF(idx){
-  const v=visits[idx];
-  pdfjsLib.getDocument(v.pdf).promise.then(doc=>{
-    pdfDocs[idx]=doc;
-    totalPages[idx]=doc.numPages;
-    loaded[idx]=true;
-    renderPage(idx,1);
+function switchDoc(dIdx, el){
+  document.querySelectorAll('.doc-tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  currentDoc = dIdx;
+  loadDoc(currentVisit, dIdx);
+}
+
+function loadDoc(vIdx, dIdx){
+  const entry = cache[vIdx][dIdx];
+  const doc   = visitDocs[vIdx][dIdx];
+  const loadingEl = document.getElementById('pdfLoading');
+  const canvas    = document.getElementById('pdfCanvas');
+
+  document.getElementById('pdfLoadingText').textContent = 'Loading ' + doc.label + '…';
+  loadingEl.style.display = 'flex';
+  canvas.style.display    = 'none';
+
+  if(entry.pdfDoc){
+    renderPage(vIdx, dIdx, entry.currentPage);
+    return;
+  }
+  pdfjsLib.getDocument(doc.pdf).promise.then(pdf=>{
+    entry.pdfDoc      = pdf;
+    entry.totalPages  = pdf.numPages;
+    entry.currentPage = 1;
+    renderPage(vIdx, dIdx, 1);
   }).catch(()=>{
-    document.getElementById(v.loadingId).innerHTML=
-      '<div style="color:#f99;font-size:12px;text-align:center;padding:20px">&#9888; PDF not found.<br><small>Place <strong>timesheet.pdf</strong> in the same folder as index.html.</small></div>';
+    loadingEl.innerHTML='<div style="color:#f99;font-size:12px;text-align:center;padding:30px">&#9888; PDF not found.<br><small>Place the PDF file in the same folder as index.html.</small></div>';
   });
 }
 
-function renderPage(idx,num){
-  const v=visits[idx];
-  pdfDocs[idx].getPage(num).then(page=>{
-    const canvas=document.getElementById(v.canvasId);
-    const ctx=canvas.getContext('2d');
-    const viewport=page.getViewport({scale});
-    canvas.width=viewport.width;
-    canvas.height=viewport.height;
-    page.render({canvasContext:ctx,viewport}).promise.then(()=>{
-      document.getElementById(v.loadingId).style.display='none';
+function renderPage(vIdx, dIdx, pageNum){
+  const entry  = cache[vIdx][dIdx];
+  const canvas = document.getElementById('pdfCanvas');
+  const ctx    = canvas.getContext('2d');
+  entry.pdfDoc.getPage(pageNum).then(page=>{
+    const viewport = page.getViewport({scale});
+    canvas.width   = viewport.width;
+    canvas.height  = viewport.height;
+    page.render({canvasContext:ctx, viewport}).promise.then(()=>{
+      document.getElementById('pdfLoading').style.display='none';
       canvas.style.display='block';
-      document.getElementById(v.pageInfoId).textContent='Page '+num+' of '+totalPages[idx];
-      currentPages[idx]=num;
+      document.getElementById('pageInfo').textContent = 'Page '+pageNum+' of '+entry.totalPages;
+      entry.currentPage = pageNum;
     });
   });
 }
 
-function prevPage(){const i=currentVisit;if(currentPages[i]>1)renderPage(i,currentPages[i]-1)}
-function nextPage(){const i=currentVisit;if(currentPages[i]<totalPages[i])renderPage(i,currentPages[i]+1)}
-function zoomIn(){scale=Math.min(scale+0.2,3);if(loaded[currentVisit])renderPage(currentVisit,currentPages[currentVisit])}
-function zoomOut(){scale=Math.max(scale-0.2,0.5);if(loaded[currentVisit])renderPage(currentVisit,currentPages[currentVisit])}
-function downloadPDF(){const a=document.createElement('a');a.href=visits[currentVisit].pdf;a.download='approved_timesheet.pdf';a.click()}
+function prevPage(){
+  const e=cache[currentVisit][currentDoc];
+  if(e.pdfDoc && e.currentPage>1) renderPage(currentVisit,currentDoc,e.currentPage-1);
+}
+function nextPage(){
+  const e=cache[currentVisit][currentDoc];
+  if(e.pdfDoc && e.currentPage<e.totalPages) renderPage(currentVisit,currentDoc,e.currentPage+1);
+}
+function zoomIn(){scale=Math.min(scale+0.2,3);const e=cache[currentVisit][currentDoc];if(e.pdfDoc)renderPage(currentVisit,currentDoc,e.currentPage)}
+function zoomOut(){scale=Math.max(scale-0.2,0.5);const e=cache[currentVisit][currentDoc];if(e.pdfDoc)renderPage(currentVisit,currentDoc,e.currentPage)}
+function downloadPDF(){
+  const a=document.createElement('a');
+  a.href=visitDocs[currentVisit][currentDoc].pdf;
+  a.download=visitDocs[currentVisit][currentDoc].label.replace(/ /g,'_')+'.pdf';
+  a.click();
+}
 </script>
 </body>
 </html>
